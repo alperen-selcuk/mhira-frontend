@@ -1,0 +1,71 @@
+@import "../../../assets/scss/variables";
+i {
+  cursor: pointer;
+}
+
+nz-content {
+  min-height: 100vh;
+  background-color: #bae7ff;  // Daha koyu mavi ton
+  .form-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+  }
+}
+
+.app-logo {
+  margin-bottom: 30px;
+  text-align: center;
+  h1 {
+    color: #373a37;
+    font-weight: normal;
+    margin-top: 15px;
+  }
+  img {
+    margin: auto;
+    height: 320px;  // İki katına çıkardık (160px * 2)
+    width: auto;
+  }
+}
+
+.form-title {
+  text-align: center;
+  color: #fff;
+  .line {
+    position: absolute;
+    top: 11px;
+    width: 100%;
+    border-bottom: 2px solid #fff;
+  }
+}
+
+.errors {
+  margin-bottom: 10px;
+}
+
+.login-form {
+  margin: auto;
+  max-width: 400px;
+  .forgot-password {
+    color: #2a7a87;
+  }
+}
+
+.login-form-margin {
+  margin-bottom: 16px;
+}
+
+.login-form-forgot {
+  float: right;
+}
+
+.login-form-button {
+  width: 100%;
+  background-color: #8ad080;
+  border-color: #8ad080;
+}
+
+.version-text {
+  color: white;
+}

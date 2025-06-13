@@ -1,0 +1,30 @@
+<nz-layout class="layout">
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null" nzWidth="250px">
+    <div class="logo">
+      <div nz-row>
+        <div nz-col nzFlex="auto" style="text-align: left; padding: 20px;">
+          <img *ngIf="!isCollapsed" width="120px" src="../../../assets/images/root.png" />
+        </div>
+        <div nz-col>
+          <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu' : 'menu'" (click)="isCollapsed = !isCollapsed"></i>
+        </div>
+      </div>
+    </div>
+    <div class="nav-menu" style="margin-top: 20px;">
+      <app-side-nav [isCollapsed]="isCollapsed"></app-side-nav>
+    </div>
+  </nz-sider>
+  <nz-layout
+    class="content-area"
+    [ngClass]="{ 'side-bar-collapsed': isCollapsed, 'side-bar-not-collapsed': !isCollapsed }"
+  >
+    <nz-header>
+      <app-header></app-header>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
