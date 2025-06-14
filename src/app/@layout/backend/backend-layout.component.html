@@ -2,15 +2,15 @@
   <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null" nzWidth="250px">
     <div class="logo">
       <div nz-row>
-        <div nz-col nzFlex="auto" style="text-align: left; padding: 40px;">
-          <img *ngIf="!isCollapsed" width="360px" src="../../../assets/images/root.png" />
+        <div nz-col nzFlex="auto" style="text-align: left; padding: 10px;">
+          <img *ngIf="!isCollapsed" width="220px" src="../../../assets/images/root.png" />
         </div>
         <div nz-col>
           <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu' : 'menu'" (click)="isCollapsed = !isCollapsed"></i>
         </div>
       </div>
     </div>
-    <div class="nav-menu" style="margin-top: 20px;">
+    <div class="nav-menu">
       <app-side-nav [isCollapsed]="isCollapsed"></app-side-nav>
     </div>
   </nz-sider>

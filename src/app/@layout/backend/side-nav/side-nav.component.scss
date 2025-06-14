@@ -3,7 +3,7 @@
 
 .side-nav {
   overflow: visible;
-  margin-bottom: 50px;
+  margin-bottom: 0; // 50px'den 0'a değiştirildi
 }
 
 ul {
@@ -112,16 +112,18 @@ ul {
 .help-text {
   width: 100%;
   justify-content: center;
-  // text-align: center;
-  // margin-right: 150px;
   margin-left: 20px;
+  margin-top: 16px;
+  margin-bottom: 16px; // Alt boşluk eklendi
 }
 
 .big-div {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;  // flex-start'tan space-between'e değiştirildi
   flex-direction: column;
-  min-height: 800px;
+  min-height: 100%; // 800px'den 100%'e değiştirildi
+  margin-top: 0;  // 80px'den 0'a değiştirildi
+  height: 100%;
 }
 
 .text-in-help {
