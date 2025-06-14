@@ -4,7 +4,7 @@
   overflow-y: hidden;
   nz-sider {
     position: fixed;
-    height: 100%;
+    height: 100vh; // Use viewport height to ensure full height
     z-index: 2;
     background-color: $app-dark;
     display: flex;
@@ -12,16 +12,16 @@
 
     .logo {
       height: auto;
-      min-height: 100px;
+      min-height: 70px;
       flex: 0 0 auto;
       background-color: transparent;
       border-bottom: 1px solid #606060;
       margin: 0;
-      padding: 16px 0;
+      padding: 12px 0;
       overflow: visible;
       position: relative;
-      z-index: 100; // Çok yüksek z-index değeri
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); // Görünür olmasını sağlamak için gölge eklendi
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 
       img {
         max-width: 100%;
@@ -38,28 +38,34 @@
 
     .nav-menu {
       flex: 1 1 auto;
-      height: calc(100% - 100px);
-      overflow-y: auto;
-      padding-top: 0; // Üstteki boşluğu kaldırdık
-      margin-top: 0;
-      margin-bottom: 0; // Alt boşluğu da kaldırdık
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+      height: calc(100vh - 100px); // Use viewport height for better accuracy
+      padding-top: 0;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      overflow-y: auto; // Add explicit vertical scrolling
+      scrollbar-width: thin; // Changed from 'none' to 'thin' for better usability
+      -ms-overflow-style: auto; // Changed from 'none' to 'auto'
       position: relative;
       z-index: 99;
       display: flex;
       flex-direction: column;
 
-      // Tüm içeriğin scroll edilebilmesi için app-side-nav'ı tam boyutlu yapalım
+      // Make app-side-nav take full available space
       app-side-nav {
         display: block;
-        min-height: 100%;
+        height: 100%; // Ensure full height
+        overflow-y: visible; // Ensure content inside is not cut off
       }
     }
 
     .nav-menu::-webkit-scrollbar {
-      width: 0;
-      height: 0;
+      width: 4px; // Give a small width instead of 0 for better usability
+      height: 4px;
+    }
+    
+    .nav-menu::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2); // Add a subtle scrollbar thumb
+      border-radius: 4px;
     }
   }
   .content-area {
