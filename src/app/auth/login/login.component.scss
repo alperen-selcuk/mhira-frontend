@@ -5,7 +5,7 @@ i {
 
 nz-content {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1890ff 0%, #40a9ff 50%, #69c0ff 100%);
+  background-color: #bae7ff;  // Daha koyu mavi ton
   .form-container {
     position: absolute;
     top: 50%;
@@ -18,16 +18,14 @@ nz-content {
   margin-bottom: 30px;
   text-align: center;
   h1 {
-    color: #ffffff;
-    font-weight: 600;
+    color: #373a37;
+    font-weight: normal;
     margin-top: 15px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
   img {
     margin: auto;
-    height: 320px;
+    height: 320px;  // İki katına çıkardık (160px * 2)
     width: auto;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
   }
 }
 
@@ -38,7 +36,7 @@ nz-content {
     position: absolute;
     top: 11px;
     width: 100%;
-    border-bottom: 2px solid rgba(255,255,255,0.8);
+    border-bottom: 2px solid #fff;
   }
 }
 
@@ -50,11 +48,7 @@ nz-content {
   margin: auto;
   max-width: 400px;
   .forgot-password {
-    color: #ffffff;
-    font-weight: 500;
-  }
-  .forgot-password:hover {
-    color: #f0f9ff;
+    color: #2a7a87;
   }
 }
 
@@ -68,23 +62,10 @@ nz-content {
 
 .login-form-button {
   width: 100%;
-  background: linear-gradient(135deg, #1890ff 0%, #40a9ff 100%);
-  border: none;
-  height: 48px;
-  font-weight: 600;
-  font-size: 16px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
-  transition: all 0.3s ease;
-}
-
-.login-form-button:hover {
-  background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(24, 144, 255, 0.4);
+  background-color: #8ad080;
+  border-color: #8ad080;
 }
 
 .version-text {
-  color: rgba(255,255,255,0.9);
-  font-size: 14px;
+  color: white;
 }
