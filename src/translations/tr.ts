@@ -130,6 +130,7 @@ export default {
       formattedUpdatedAt: 'Güncellenme Tarihi',
       formattedCreatedAt: 'Oluşturulma Tarihi'
     },
+    patientStatus: { name: 'Ad' }, // ADDED
     disclaimer: {
       type: 'Tür',
       textInformation: 'Metin Bilgisi',
@@ -142,8 +143,9 @@ export default {
       questionnaires: 'Anketler',
       deliveryDate: 'Teslim Tarihi',
       expirationDate: 'Son Kullanma Tarihi',
-      updatedAt: 'Gönderim Tarihi',
+      updatedAt: 'Gönderim Tarihi', // This was 'updatedAt', en.ts has 'emailStatus' and 'status'
       status: 'Durum',
+      emailStatus: 'E-posta Durumu' // ADDED based on en.ts
     },
     scripts: {
       name: 'Ad',
@@ -463,17 +465,18 @@ export default {
     website: 'Web Sitesi',
     license: 'Lisans',
     createdAt: 'Oluşturma Tarihi',
-    discardedTitle: 'Bu sürümü atmak istediğinizden emin misiniz?',
-    discardedMessage: `<p>Bir sürümü attığınızda ne olur?</p>
+    discardedTitle: 'Bu Anketi Atmak İstediğinizden Emin Misiniz?', // UPDATED
+    discardedMessage: `<p>Bir anketi attığınızda ne olur?</p>
     <ol>
-      <li><b>Yeni Değerlendirmeler</b>: Bu sürümü yeni değerlendirmeler için kullanamayacaksınız.</li>
-      <li><b>Veri</b>: Bu sürümle şimdiye kadar topladığınız tüm veriler yine de erişilebilir olacaktır.</li>
-      <li><b>Rapor Betikleri</b>: Bu sürüme dayalı raporlar oluşturan betiği düzenlemeye devam edebileceksiniz.</li>
-      <li><b>Konum</b>: Değerlendirme "Atılan Değerlendirmeler" adlı ayrı bir bölüme taşınacaktır. Burada, değerlendirmeyi ve ilgili betikleri düzenleyebileceksiniz.</li>
-      <li><b>Değiştirme</b>: Aynı dil ve kısaltmaya sahip yeni bir sürüm için atma işlemi alan açar.</li>
-    </ol>`,
+      <li><b>Yeni Değerlendirmeler</b>: Bu anketi yeni değerlendirmeler için kullanamayacaksınız.</li>
+      <li><b>Veri</b>: Bu anketle şimdiye kadar topladığınız tüm veriler yine de erişilebilir olacaktır.</li>
+      <li><b>Rapor Betikleri</b>: Bu ankete dayalı raporlar oluşturan betiği düzenlemeye devam edebileceksiniz.</li>
+      <li><b>Konum</b>: Anket, "Atılmış Anketler" adlı ayrı bir bölüme taşınacaktır. Burada, anketi ve ilgili betikleri düzenleyebileceksiniz.</li>
+      <li><b>Değiştirme</b>: Aynı dil ve kısaltmaya sahip yeni bir anket için atma işlemi alan açar.</li>
+    </ol>\`, // UPDATED
     continueButton: 'Devam Et',
-    cancelButton: 'İptal'
+    cancelButton: 'İptal',
+    draft: '' // ADDED
   },
   questionnairesForm: {
     name: 'Ad',
@@ -623,8 +626,11 @@ export default {
   },
   modal: {
     continue: 'Sonraki bölüme geçmek istiyor musunuz?',
-    continueOverview: 'Değerlendirmeyi bitirmek istiyor musunuz?',
-    ok: 'Geri dön ve zorunlu soruları cevapla'
+    continueOverview: 'Anketi bitirmek istiyor musunuz?', // UPDATED
+    ok: 'Geri dön ve zorunlu soruları cevapla',
+    unansweredQuestions: '{{count}} adet cevaplanmamış zorunlu sorunuz var. Anketi gönderebilmek için tüm soruların cevaplanması gerekir.', // ADDED
+    unansweredQuestionsOverview: '{{count}} adet cevaplanmamış zorunlu sorunuz var. Anketi bitirmek istediğinizden emin misiniz?', // ADDED
+    cancel: 'Tamamlamadan Devam Et (Önerilmez)' // ADDED
   },
   bundles: {
     created: "Anket paketi başarıyla oluşturuldu!",
