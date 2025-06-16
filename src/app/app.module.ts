@@ -10,7 +10,7 @@ import {
   TranslateModuleConfig,
 } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
+import { NZ_I18N, en_US, tr_TR } from 'ng-zorro-antd/i18n';
 import { environment } from '@env/environment';
 import { CoreModule } from '@core';
 import { SharedModule } from '@shared';
@@ -42,7 +42,7 @@ const translationConfig: TranslateModuleConfig = {
   },
 };
 
-if (environment.production) translationConfig.defaultLanguage = TranslationCode.EN;
+if (environment.production) translationConfig.defaultLanguage = TranslationCode.TR;
 
 @NgModule({
   imports: [
@@ -64,7 +64,10 @@ if (environment.production) translationConfig.defaultLanguage = TranslationCode.
   providers: [
     {
       provide: NZ_I18N,
-      useValue: en_US,
+      useFactory: () => {
+        const lang = localStorage.getItem('language') || environment.defaultLanguage;
+        return lang === 'tr' ? tr_TR : en_US;
+      },
     },
     AuthGuard,
     PermissionGuard,
@@ -73,7 +76,13 @@ if (environment.production) translationConfig.defaultLanguage = TranslationCode.
 })
 export class AppModule {
   constructor() {
+    // Register English locales
     registerLocalCountry(require('i18n-iso-countries/langs/en.json'));
     registerLocaleLanguage(require('@cospired/i18n-iso-languages/langs/en.json'));
+    
+    // Register Turkish locales - only for countries as the language package doesn't have TR support
+    registerLocalCountry(require('i18n-iso-countries/langs/tr.json'));
+    // We won't use the non-existent Turkish language file
+    // registerLocaleLanguage(require('@cospired/i18n-iso-languages/langs/tr.json'));
   }
 }

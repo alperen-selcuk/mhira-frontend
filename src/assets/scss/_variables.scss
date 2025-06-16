@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,700");
 
-// app theme colors
-$app-dark: #373737;
-$app-green: #89d180;
+// app theme colors - Updated to blue theme
+$app-dark: #1890ff;
+$app-green: #40a9ff;
 $app-blue: #258aa7;
 $app-light-blue: #f1f4ff;
 // Custom Color
@@ -15,13 +15,13 @@ $red: #de4436 !default;
 $orange: #fa8c16 !default;
 $gold: #ffc107 !default;
 $green: #52c41a !default;
-$blue: #258aa7 !default;
+$blue: #1890ff !default;
 $cyan: #00c9a7 !default;
 $purple: #886cff !default;
 $magenta: #eb2f96 !default;
 $volcano: #fa541c !default;
 $lime: #a0d911 !default;
-$geekblue: #258aa7 !default;
+$geekblue: #1890ff !default;
 
 // Create grayscale
 $gray-dark: #2a2a2a !default;
@@ -78,8 +78,8 @@ $tone-loop: (
   "purple" $tone-purple $tone-purple-light
 );
 
-// State Colors
-$brand-primary: $app-green !default;
+// State Colors - Updated primary brand color to blue
+$brand-primary: #1890ff !default;
 $brand-secondary: $purple !default;
 $brand-success: $cyan !default;
 $brand-info: $blue !default;
@@ -564,10 +564,10 @@ $dropdown-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !default;
 //
 // Define colors theme color for menu
 $menu-spacing-y: 45px;
-$menu-text: #fff !default;
-$menu-dark-bg: #223143 !default;
-$menu-dark-bg-sub: #181f29 !default;
-$menu-dark-text: #99abb4 !default;
+$menu-text: rgba(255, 255, 255, 0.9) !default;
+$menu-dark-bg: #1890ff !default;
+$menu-dark-bg-sub: #096dd9 !default;
+$menu-dark-text: rgba(255, 255, 255, 0.7) !default;
 
 //Pagination
 $pagination-theme-color: $brand-primary !default;

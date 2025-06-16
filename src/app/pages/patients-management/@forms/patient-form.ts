@@ -1,13 +1,12 @@
 import { Form } from '@shared/components/form/@types/form';
 import { Field } from '@shared/components/form/@types/field';
-import { getNames } from 'i18n-iso-countries';
 
 const informationFields: Field[] = [
   {
     value: '',
     name: 'firstName',
-    title: 'First Name',
-    label: 'First Name',
+    title: 'Ad',
+    label: 'Ad',
     translationPath: 'forms.patients.firstName',
     description: 'forms.patients.description',
     type: 'text',
@@ -18,8 +17,8 @@ const informationFields: Field[] = [
   {
     value: '',
     name: 'middleName',
-    title: 'Middle Name',
-    label: 'Middle Name',
+    title: 'İkinci Ad',
+    label: 'İkinci Ad',
     translationPath: 'forms.patients.middleName',
     description: 'forms.patients.descriptionEnterMiddleName',
     type: 'text',
@@ -30,8 +29,8 @@ const informationFields: Field[] = [
   {
     value: '',
     name: 'lastName',
-    title: 'Last Name',
-    label: 'Last Name',
+    title: 'Soyad',
+    label: 'Soyad',
     translationPath: 'forms.patients.lastName',
     description: 'forms.patients.descriptionEnterLastName',
     type: 'text',
@@ -42,8 +41,8 @@ const informationFields: Field[] = [
   {
     value: '',
     name: 'medicalRecordNo',
-    title: 'ID',
-    label: 'Medical record number',
+    title: 'Kimlik No',
+    label: 'Tıbbi kayıt numarası',
     translationPath: 'forms.patients.id',
     description: 'forms.patients.descriptionId',
     type: 'text',
@@ -53,9 +52,9 @@ const informationFields: Field[] = [
   },
   {
     value: '',
-    title: 'Date of Birth',
+    title: 'Doğum Tarihi',
     name: 'birthDate',
-    label: 'Birth Date',
+    label: 'Doğum Tarihi',
     translationPath: 'forms.patients.birthDate',
     description: 'forms.patients.descriptionBirthDate',
     type: 'date',
@@ -66,8 +65,8 @@ const informationFields: Field[] = [
   {
     value: '',
     name: 'gender',
-    title: 'Gender',
-    label: 'Gender',
+    title: 'Cinsiyet',
+    label: 'Cinsiyet',
     translationPath: 'tables.patients.gender',
     description: 'tables.patients.selectGender',
     type: 'select',
@@ -80,20 +79,31 @@ const informationFields: Field[] = [
     ],
     span: 8,
   },
+  {
+    value: '',
+    name: 'statusId',
+    title: 'Durum',
+    label: 'Durum',
+    translationPath: 'forms.patients.status',
+    description: 'forms.patients.descriptionStatus',
+    type: 'select',
+    validationMessage: 'forms.patients.validationMessageStatus',
+    isRequired: false,
+    options: [],
+    span: 8,
+  },
 ];
-
-
 
 const departmentsField: Field = {
   value: '',
   name: 'departmentIds',
-  title: 'Department',
-  label: 'Department',
+  title: 'Departman',
+  label: 'Departman',
   translationPath: 'forms.patients.department',
   description: 'forms.patients.descriptionSelect',
-  type: 'select',  // Changed from checkBox to select
+  type: 'select',
   validationMessage: 'forms.patients.validationMessageSelect',
-  isRequired: true,  // Make it required since it's needed
+  isRequired: true,
   options: [],
   span: 8,
 };
@@ -102,8 +112,8 @@ const addressFields: Field[] = [
   {
     value: '',
     name: 'addressStreet',
-    title: 'Street',
-    label: 'Street',
+    title: 'Cadde',
+    label: 'Cadde',
     translationPath: 'forms.patients.street',
     description: 'forms.patients.descriptionStreetName',
     type: 'text',
@@ -115,8 +125,8 @@ const addressFields: Field[] = [
   {
     value: '',
     name: 'addressNumber',
-    title: 'Number',
-    label: 'Number',
+    title: 'Numara',
+    label: 'Numara',
     translationPath: 'forms.patients.addressNumber',
     description: 'forms.patients.descriptionApartment',
     type: 'text',
@@ -128,8 +138,8 @@ const addressFields: Field[] = [
   {
     value: '',
     name: 'addressApartment',
-    title: 'Apartment',
-    label: 'Apartment',
+    title: 'Daire',
+    label: 'Daire',
     translationPath: 'forms.patients.addressApartment',
     description: 'forms.patients.descriptionApartment',
     type: 'text',
@@ -141,8 +151,8 @@ const addressFields: Field[] = [
   {
     value: '',
     name: 'addressPlace',
-    title: 'Place',
-    label: 'Place',
+    title: 'Yer',
+    label: 'Yer',
     translationPath: 'forms.patients.addressPlace',
     description: 'forms.patients.descriptionEnterPlace',
     type: 'text',
@@ -154,8 +164,8 @@ const addressFields: Field[] = [
   {
     value: '',
     name: 'addressPostalCode',
-    title: 'Postal Code',
-    label: 'Postal Code',
+    title: 'Posta Kodu',
+    label: 'Posta Kodu',
     translationPath: 'forms.patients.addressPostalCode',
     description: 'forms.patients.descriptionEnterPostal',
     type: 'text',
@@ -167,15 +177,20 @@ const addressFields: Field[] = [
   {
     value: '',
     name: 'addressCountryCode',
-    title: 'Country',
-    label: 'Country',
+    title: 'Ülke',
+    label: 'Ülke',
     translationPath: 'forms.patients.addressCountryCode',
     description: 'forms.patients.descriptionEnterCountry',
     type: 'select',
     validationMessage: 'forms.patients.validationMessageCountry',
     isRequired: false,
     span: 8,
-    options: Object.entries(getNames('en', { select: 'official' })).map(([value, label]) => ({ label, value })),
+    options: [
+      { label: 'Turkey', value: 'TR' },
+      { label: 'United States', value: 'US' },
+      { label: 'Germany', value: 'DE' },
+      { label: 'United Kingdom', value: 'GB' },
+    ],
   },
 ];
 
@@ -183,8 +198,8 @@ const contactFields: Field[] = [
   {
     value: '',
     name: 'email',
-    title: 'Email Address',
-    label: 'Email Address',
+    title: 'E-posta Adresi',
+    label: 'E-posta Adresi',
     translationPath: 'forms.patients.email',
     description: 'forms.patients.descriptionEnterEmail',
     type: 'text',
@@ -195,8 +210,8 @@ const contactFields: Field[] = [
   {
     value: '',
     name: 'phone',
-    title: 'Phone',
-    label: 'Phone',
+    title: 'Telefon',
+    label: 'Telefon',
     translationPath: 'forms.patients.phone',
     description: 'forms.patients.descriptionPhone',
     type: 'text',
@@ -207,8 +222,8 @@ const contactFields: Field[] = [
   {
     value: '',
     name: 'phone2',
-    title: 'Phone (alternative)',
-    label: 'Phone (alternative)',
+    title: 'Alternatif Telefon',
+    label: 'Alternatif Telefon',
     translationPath: 'forms.patients.phone2',
     description: 'forms.patients.descriptionPhone2',
     type: 'text',
@@ -221,116 +236,116 @@ const contactFields: Field[] = [
 const emergencyContactFields: Field[] = [
   {
     value: '',
-    name: 'emergencyContacts',
-    title: 'Emergency Contact',
-    label: 'Emergency Contact',
-    translationPath: 'forms.patients.emergencyContacts',
-    description: 'Enter emergency contact',
-    type: 'array',
-    validationMessage: 'please enter emergency contact',
+    name: 'firstName',
+    title: 'Ad',
+    label: 'Ad',
+    translationPath: 'forms.patients.firstName',
+    description: 'forms.patients.descriptionContactName',
+    type: 'text',
+    validationMessage: 'forms.patients.validationContactName',
     isRequired: false,
-    span: 24,
-    rows: [],
-    children: [
-      {
-        value: '',
-        name: 'firstName',
-        title: 'First Name',
-        label: 'First Name',
-        translationPath: 'forms.patients.firstName',
-        description: 'Enter contact first name',
-        type: 'text',
-        validationMessage: 'please enter contact first name',
-        isRequired: false,
-        span: 8,
-      },
-      {
-        value: '',
-        name: 'middleName',
-        title: 'Middle Name',
-        label: 'Middle Name',
-        translationPath: 'forms.patients.middleName',
-        description: 'Enter contact middle name',
-        type: 'text',
-        validationMessage: 'please enter contact middle name',
-        isRequired: false,
-        span: 8,
-      },
-      {
-        value: '',
-        name: 'lastName',
-        title: 'Last Name',
-        label: 'Last Name',
-        translationPath: 'forms.patients.lastName',
-        description: 'Enter contact last name',
-        type: 'text',
-        validationMessage: 'please enter contact last name',
-        isRequired: false,
-        span: 8,
-      },
-      {
-        value: '',
-        name: 'email',
-        title: 'Email',
-        label: 'Email',
-        translationPath: 'forms.patients.email',
-        description: 'Enter contact email',
-        type: 'text',
-        validationMessage: 'please enter contact email',
-        isRequired: false,
-        span: 12,
-      },
-      {
-        value: '',
-        name: 'phone',
-        title: 'Phone',
-        label: 'Phone',
-        translationPath: 'forms.patients.phone',
-        description: 'Enter contact phone',
-        type: 'text',
-        validationMessage: 'please enter contact phone',
-        isRequired: false,
-        span: 12,
-      },
-    ],
+    span: 8,
+  },
+  {
+    value: '',
+    name: 'middleName',
+    title: 'İkinci Ad',
+    label: 'İkinci Ad',
+    translationPath: 'forms.patients.middleName',
+    description: 'forms.patients.descriptionMiddleName',
+    type: 'text',
+    validationMessage: 'forms.patients.validationMiddleName',
+    isRequired: false,
+    span: 8,
+  },
+  {
+    value: '',
+    name: 'lastName',
+    title: 'Soyad',
+    label: 'Soyad',
+    translationPath: 'forms.patients.lastName',
+    description: 'forms.patients.descriptionLastName',
+    type: 'text',
+    validationMessage: 'forms.patients.validationLastName',
+    isRequired: false,
+    span: 8,
+  },
+  {
+    value: '',
+    name: 'email',
+    title: 'E-posta',
+    label: 'E-posta',
+    translationPath: 'forms.patients.email',
+    description: 'forms.patients.descriptionEmail',
+    type: 'text',
+    validationMessage: 'forms.patients.validationEmail',
+    isRequired: false,
+    span: 12,
+  },
+  {
+    value: '',
+    name: 'phone',
+    title: 'Telefon',
+    label: 'Telefon',
+    translationPath: 'forms.patients.phone',
+    description: 'forms.patients.descriptionContact',
+    type: 'text',
+    validationMessage: 'forms.patients.validationContact',
+    isRequired: false,
+    span: 12,
   },
 ];
 
 const getForm = (createMode: boolean): Form => {
   return {
     submitButtonText: 'forms.patients.savePatient2',
-    editButtonText: 'Edit Patient',
+    editButtonText: 'Hastayı Düzenle',
     submitButtonClass: 'right-align-submit',
     groups: [
       {
-        title: 'Patient Information',
+        title: 'Hasta Bilgileri',
         translationPath: 'forms.patients.patientInformation',
         fields: createMode ? [...informationFields, departmentsField] : informationFields,
       },
       {
-        title: 'Patient Address',
+        title: 'Hasta Adresi',
         translationPath: 'forms.patients.patientAddress',
         fields: addressFields,
       },
       {
-        title: 'Patient Contact',
+        title: 'Hasta İletişim',
         translationPath: 'forms.patients.patientContact',
         fields: contactFields,
       },
       {
-        title: 'Emergency Contacts',
-        translationPath: 'forms.patients.emergencyContacts',
-        fields: emergencyContactFields,
-      },
-    ],
+        title: 'Acil Durum İletişimleri',
+        translationPath: 'forms.patients.emergency',
+        fields: [{
+          value: '',
+          name: 'emergencyContacts',
+          title: 'Acil Durum İletişimi',
+          label: 'Acil Durum İletişimi',
+          translationPath: 'forms.patients.emergencyContact',
+          description: 'forms.patients.addEmergencyContact',
+          type: 'array',
+          validationMessage: 'forms.patients.validationEmergencyContact',
+          isRequired: false,
+          span: 24,
+          rows: [],
+          children: emergencyContactFields
+        }]
+      }
+    ]
   };
 };
 
 export const PatientCreateForm: Form = {
-  submitButtonText: 'Submit Patient',
+  submitButtonText: 'Hastayı Kaydet',
   submitButtonClass: 'full-width',
   groups: [
     {
+      title: 'Hasta Bilgileri',
+      translationPath: 'forms.patients.patientInformation',
       fields: [
         ...informationFields,
         departmentsField,
@@ -338,23 +353,29 @@ export const PatientCreateForm: Form = {
       ],
     },
     {
-      title: 'Emergency Contact',
-      translationPath: 'forms.patients.emergencyContact',
+      title: 'Hasta İletişim',
+      translationPath: 'forms.patients.patientContact',
+      fields: contactFields,
+    },
+    {
+      title: 'Acil Durum İletişimi',
+      translationPath: 'forms.patients.emergency',
       fields: [{
         value: '',
         name: 'emergencyContacts',
-        title: 'Emergency Contact',
-        label: 'Emergency Contact',
-        translationPath: 'forms.patients.emergencyContacts',
-        description: 'Enter emergency contact',
+        title: 'Acil Durum İletişimi',
+        label: 'Acil Durum İletişimi',
+        translationPath: 'forms.patients.emergencyContact',
+        description: 'forms.patients.addEmergencyContact',
         type: 'array',
-        validationMessage: 'please enter emergency contact',
+        validationMessage: 'forms.patients.validationEmergencyContact',
         isRequired: false,
         span: 24,
         rows: [],
-        children: [...emergencyContactFields]
-      }],
-    },
-  ],
+        children: emergencyContactFields
+      }]
+    }
+  ]
 };
+
 export const PatientUpdateForm = getForm(false);

@@ -5,7 +5,7 @@ import { User } from '@app/pages/user-management/@types/user';
 
 export const AssessmentsPatientsTable: TableColumn<FormattedAssessment>[] = [
   {
-    title: 'Title',
+    title: 'Başlık',
     name: 'formattedAssessmentType',
     altName: 'assessmentType',
     translationPath: 'tables.assessmentsPatients.title',
@@ -24,7 +24,7 @@ export const AssessmentsPatientsTable: TableColumn<FormattedAssessment>[] = [
       : {},
   },
   {
-    title: 'Manager',
+    title: 'Yönetici',
     name: 'formattedClinician',
     altName: 'clinician',
     translationPath: 'tables.assessmentsPatients.manager',
@@ -46,7 +46,7 @@ export const AssessmentsPatientsTable: TableColumn<FormattedAssessment>[] = [
       : {},
   },
   // {
-  //   title: 'Informants',
+  //   title: 'Bilgi Verenler',
   //   name: 'informantType',
   //   translationPath: 'tables.assessmentsPatients.informant',
   //   sort: true,
@@ -57,7 +57,7 @@ export const AssessmentsPatientsTable: TableColumn<FormattedAssessment>[] = [
   // },
   {
     name: 'formatedQuestionnaires',
-    title: 'Questionnaires',
+    title: 'Anketler',
     render: 'questAvatar',
     filterField: {
       type: 'text',
@@ -65,7 +65,7 @@ export const AssessmentsPatientsTable: TableColumn<FormattedAssessment>[] = [
     },
   },
   {
-    title: 'Status',
+    title: 'Durum',
     name: 'formattedStatus',
     altName: 'status',
     translationPath: 'tables.assessmentsPatients.status',
@@ -78,7 +78,7 @@ export const AssessmentsPatientsTable: TableColumn<FormattedAssessment>[] = [
     },
   },
   // {
-  //   title: 'Expiration Date',
+  //   title: 'Son Geçerlilik Tarihi',
   //   altName: 'expirationDate',
   //   name: 'formatedExpirationDate',
   //   translationPath: 'tables.assessmentsPatients.expirationDate',
@@ -86,17 +86,17 @@ export const AssessmentsPatientsTable: TableColumn<FormattedAssessment>[] = [
   //   filterField: {
   //     type: 'dateRange',
   //     value: undefined,
-  //     title: 'Expiration Date',
+  //     title: 'Son Geçerlilik Tarihi',
   //   },
   // },
   {
     name: 'submissionDate',
-    title: 'Submission Date',
+    title: 'Gönderim Tarihi',
     translationPath: 'plannedAssessments.submissionDate',
     render: 'date'
   },
   {
-    title: 'Email Status',
+    title: 'E-posta Durumu',
     name: 'emailFormatedStatus',
     altName: 'emailStatus',
     render: 'tag',
@@ -108,7 +108,7 @@ export const AssessmentsPatientsTable: TableColumn<FormattedAssessment>[] = [
     },
   },
   {
-    title: 'Delivery Date',
+    title: 'Teslim Tarihi',
     name: 'formatedDeliveryDate',
     altName: 'deliveryDate',
     translationPath: 'tables.assessmentsPatients.deliveryDate',
@@ -116,7 +116,7 @@ export const AssessmentsPatientsTable: TableColumn<FormattedAssessment>[] = [
     filterField: {
       type: 'dateRange',
       value: undefined,
-      title: 'Delivery Date',
+      title: 'Teslim Tarihi',
     },
   },
 ];

@@ -13,6 +13,8 @@ import { PermissionKey } from '@app/@shared/@types/permission';
 import { ErrorHandlerService } from '../../../../@shared/services/error-handler.service';
 import { finalize } from 'rxjs/operators';
 import { DepartmentsService } from '../../@services/departments.service';
+import { TranslateService } from '@ngx-translate/core';
+import { PatientStatusesService } from '../../@services/patient-statuses.service';
 
 const CryptoJS = require('crypto-js');
 
@@ -40,13 +42,16 @@ export class CreatePatientComponent implements OnInit {
     private errorService: ErrorHandlerService,
     private activatedRoute: ActivatedRoute,
     private departmentsService: DepartmentsService,
+    private patientStatusesService: PatientStatusesService,
     private router: Router,
+    private translateService: TranslateService,
     public perms: AppPermissionsService
   ) {}
 
   ngOnInit(): void {
     this.getPatientFromUrl();
     this.getDepartments();
+    this.getPatientStatuses();
   }
 
   public submitForm(patientData: Patient): void {
@@ -97,12 +102,12 @@ export class CreatePatientComponent implements OnInit {
         () => {
           this.populateForm = false;
           this.resetForm = true;
-          this.message.success('Emergency contacts have successfully been created');
+          this.message.success(this.translateService.instant('forms.patients.emergencyContactSuccess'));
           this.router.navigate(['/mhira/case-management/patients']);
         },
         (error) =>
           this.errorService.handleError(error, {
-            prefix: 'Unable to create emergency contacts',
+            prefix: this.translateService.instant('forms.patients.emergencyContactError'),
           })
       );
   }
@@ -113,7 +118,10 @@ export class CreatePatientComponent implements OnInit {
     this.populateForm = false;
     const emergencyContacts = patient.emergencyContacts || [];
     patient.emergencyContacts = undefined;
-    this.loadingMessage = `Creating patient ${patient.firstName} ${patient.lastName}`;
+    this.loadingMessage = this.translateService.instant('forms.patients.creatingPatient', { 
+      firstName: patient.firstName, 
+      lastName: patient.lastName 
+    });
     this.patientsService
       .createPatient(patient)
       .pipe(
@@ -124,7 +132,7 @@ export class CreatePatientComponent implements OnInit {
       .subscribe(
         async ({ data }: any) => {
           const patientData = data.createOnePatient;
-          this.message.success('Patient has successfully been created');
+          this.message.success(this.translateService.instant('forms.patients.patientCreated'));
           if (emergencyContacts.length > 0) {
             this.createEmergencyContacts(patientData.id, emergencyContacts);
           } else {
@@ -133,14 +141,17 @@ export class CreatePatientComponent implements OnInit {
         },
         (error) =>
           this.errorService.handleError(error, {
-            prefix: 'Unable to create patient',
+            prefix: this.translateService.instant('forms.patients.unableToCreatePatient'),
           })
       );
   }
 
   private updatePatient(patient: Patient) {
     this.isLoading = true;
-    this.loadingMessage = `Updating patient ${patient.firstName} ${patient.lastName}`;
+    this.loadingMessage = this.translateService.instant('forms.patients.updatingPatient', { 
+      firstName: patient.firstName, 
+      lastName: patient.lastName 
+    });
     patient.emergencyContacts = undefined;
     this.patientsService
       .updatePatient(patient)
@@ -154,12 +165,15 @@ export class CreatePatientComponent implements OnInit {
         async ({ data }) => {
           const patientData = data.updateOnePatient;
           PatientModel.fromJson(patientData);
-          this.message.create('success', `Patient has successfully been updated`);
+          this.message.create('success', this.translateService.instant('forms.patients.patientUpdated'));
           this.router.navigate(['/mhira/case-management/patients']);
         },
         (error) =>
           this.errorService.handleError(error, {
-            prefix: `Unable to update patient "${patient.firstName} ${patient.lastName}"`,
+            prefix: this.translateService.instant('forms.patients.unableToUpdatePatient', { 
+              firstName: patient.firstName,
+              lastName: patient.lastName
+            }),
           })
       );
   }
@@ -179,7 +193,29 @@ export class CreatePatientComponent implements OnInit {
             }));
           }
         },
-        (err) => this.errorService.handleError(err, { prefix: 'Unable to load departments' })
+        (err) => this.errorService.handleError(err, { 
+          prefix: this.translateService.instant('forms.patients.unableToLoadDepartments') 
+        })
       );
+  }
+
+  private getPatientStatuses(): void {
+    this.patientStatusesService.patientStatuses().subscribe(({ data }: any) => {
+      const statusField = this.patientForm.groups[0].fields.find(f => f.name === 'statusId');
+      if (statusField) {
+        statusField.options = data.patientStatuses.edges.map((e: any) => ({
+          label: e.node.name,
+          value: e.node.id
+        }));
+      }
+      // Update for update form as well
+      const updateStatusField = this.patientUpdateForm.groups[0].fields.find(f => f.name === 'statusId');
+      if (updateStatusField) {
+        updateStatusField.options = data.patientStatuses.edges.map((e: any) => ({
+          label: e.node.name,
+          value: e.node.id
+        }));
+      }
+    });
   }
 }

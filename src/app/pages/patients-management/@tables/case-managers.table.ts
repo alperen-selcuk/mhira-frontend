@@ -3,7 +3,7 @@ import { TableColumn } from '../../../@shared/@modules/master-data/@types/list';
 
 export const CaseManagerColumns: TableColumn<FormattedUser>[] = [
   {
-    title: 'First name',
+    title: 'Ad',
     name: 'firstName',
     translationPath: 'tables.casemanagers.firstName',
     sort: true,
@@ -13,7 +13,7 @@ export const CaseManagerColumns: TableColumn<FormattedUser>[] = [
     },
   },
   {
-    title: 'Middle name',
+    title: 'İkinci Ad',
     name: 'middleName',
     translationPath: 'tables.casemanagers.middleName',
     sort: true,
@@ -23,7 +23,7 @@ export const CaseManagerColumns: TableColumn<FormattedUser>[] = [
     },
   },
   {
-    title: 'Last name',
+    title: 'Soyad',
     name: 'lastName',
     translationPath: 'tables.casemanagers.lastName',
     sort: true,
@@ -33,7 +33,7 @@ export const CaseManagerColumns: TableColumn<FormattedUser>[] = [
     },
   },
   {
-    title: 'Work ID',
+    title: 'Çalışma Kimliği',
     name: 'workID',
     translationPath: 'tables.casemanagers.workID',
     sort: true,
@@ -43,7 +43,7 @@ export const CaseManagerColumns: TableColumn<FormattedUser>[] = [
     },
   },
   {
-    title: 'Phone',
+    title: 'Telefon',
     name: 'phone',
     translationPath: 'tables.casemanagers.phone',
     sort: true,
@@ -53,7 +53,7 @@ export const CaseManagerColumns: TableColumn<FormattedUser>[] = [
     },
   },
   {
-    title: 'Username',
+    title: 'Kullanıcı Adı',
     name: 'username',
     translationPath: 'tables.casemanagers.username',
     sort: true,
@@ -63,7 +63,7 @@ export const CaseManagerColumns: TableColumn<FormattedUser>[] = [
     },
   },
   {
-    title: 'Departments',
+    title: 'Departmanlar',
     name: 'formattedDepartments',
     translationPath: 'tables.casemanagers.username',
     altName: 'departments',

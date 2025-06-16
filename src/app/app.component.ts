@@ -66,11 +66,12 @@ export class AppComponent implements OnInit {
     if (lang) {
       this.translateService.use(lang);
     } else {
-      // using substr to move something like en_US to en
-      if (translationList.some((trans) => trans.code === browserLang.substr(0, trans.code.length))) {
+      // Check if browser language is supported
+      if (browserLang && translationList.some((trans) => trans.code === browserLang.substr(0, trans.code.length))) {
         this.translateService.use(browserLang);
       } else {
-        this.translateService.use(TranslationCode.EN);
+        // Use Turkish as default
+        this.translateService.use(TranslationCode.TR);
       }
     }
   }

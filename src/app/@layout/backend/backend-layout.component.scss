@@ -6,7 +6,7 @@
     position: fixed;
     height: 100vh; // Use viewport height to ensure full height
     z-index: 2;
-    background-color: $app-dark;
+    background: linear-gradient(180deg, #1890ff 0%, #096dd9 100%);
     display: flex;
     flex-direction: column;
 
@@ -14,8 +14,8 @@
       height: auto;
       min-height: 70px;
       flex: 0 0 auto;
-      background-color: transparent;
-      border-bottom: 1px solid #606060;
+      background: linear-gradient(135deg, #1890ff 0%, #40a9ff 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
       margin: 0;
       padding: 12px 0;
       overflow: visible;
@@ -27,6 +27,7 @@
         max-width: 100%;
         height: auto;
         display: block;
+        filter: brightness(1.1);
       }
 
       i {
@@ -80,7 +81,7 @@
       background: $app-light-blue;
       padding: 0;
     }
-    nz-content {
+    nz_content {
       margin: 65px 16px;
       background-color: #fff;
       .inner-content {

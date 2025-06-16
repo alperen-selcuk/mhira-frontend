@@ -44,7 +44,7 @@ export const PatientColumns: TableColumn<FormattedPatient>[] = [
     },
   },
   {
-    title: 'Gender',
+    title: 'Cinsiyet',
     name: 'gender',
     translationPath: 'tables.patients.gender',
     sort: true,
@@ -67,7 +67,7 @@ export const PatientColumns: TableColumn<FormattedPatient>[] = [
     filterField: {
       type: 'date',
       value: undefined,
-      title: 'Date of Birth',
+      title: 'Doğum Tarihi',
     },
   },
   {
@@ -84,7 +84,7 @@ export const PatientColumns: TableColumn<FormattedPatient>[] = [
     },
   },
   {
-    title: 'Informants',
+    title: 'Bilgi Verenler',
     name: 'formattedInformants',
     translationPath: 'tables.patients.informants',
     render: 'avatar',
@@ -112,7 +112,7 @@ export const PatientColumns: TableColumn<FormattedPatient>[] = [
         : {},
   },
   {
-    title: 'Created Date',
+    title: 'Oluşturulma Tarihi',
     name: 'createdAt',
     translationPath: 'tables.patients.createdAt',
     render: 'date',
@@ -120,7 +120,7 @@ export const PatientColumns: TableColumn<FormattedPatient>[] = [
     filterField: {
       type: 'dateRange',
       value: undefined,
-      title: 'Created Date',
+      title: 'Oluşturulma Tarihi',
     },
   },
 ];
