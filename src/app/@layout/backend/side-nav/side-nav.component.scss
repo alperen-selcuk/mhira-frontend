@@ -3,14 +3,14 @@
 
 .side-nav {
   ul {
-    background-color: $app-dark;
+    background-color: #bae7ff;
     li {
       margin-top: 15px;
       margin-bottom: 15px;
       a,
       span {
         text-decoration: none;
-        color: $menu-text;
+        color: #000;
       }
       a:hover,
       span:hover {
@@ -19,6 +19,7 @@
       i {
         font-size: 30px !important;
         font-weight: bold;
+        color: #000;
       }
     }
     li:hover {
@@ -28,16 +29,35 @@
 }
 
 ::ng-deep {
-  .no-padding {
-    div {
-      padding-left: 18px !important;
-      li {
-        padding-left: 43px !important;
-        margin-top: 11px !important;
-        margin-bottom: 9px !important;
-      }
-    }
+  // Sidebar'ın ana rengini değiştir
+  .ant-layout-sider.ant-layout-sider-dark {
+    background-color: #bae7ff !important;
   }
+
+  // Menu item'larının yazı rengini siyah yap
+  .ant-menu-dark .ant-menu-item,
+  .ant-menu-dark .ant-menu-item-group-title,
+  .ant-menu-dark .ant-menu-submenu-title {
+    color: #000 !important;
+  }
+
+  // Hover durumları için siyah yazı
+  .ant-menu-dark .ant-menu-item:hover,
+  .ant-menu-dark .ant-menu-submenu-title:hover {
+    color: #000 !important;
+  }
+
+  // Seçili item yazı rengi
+  .ant-menu-dark .ant-menu-item-selected {
+    color: #000 !important;
+  }
+
+  // Icon renklerini siyah yap
+  .ant-menu-dark .ant-menu-item .anticon,
+  .ant-menu-dark .ant-menu-submenu-title .anticon {
+    color: #000 !important;
+  }
+
   .ant-menu-inline,
   .ant-menu-inline-collapsed {
     border-right: 0 solid #f0f0f0 !important;
@@ -50,11 +70,11 @@
   }
   .ant-menu-submenu-popup {
     .ant-menu-sub {
-      background-color: $app-dark;
+      background-color: #bae7ff;
     }
   }
   .ant-menu-sub.ant-menu-inline {
-    background-color: $app-dark;
+    background-color: #bae7ff;
   }
   .ant-menu-submenu-selected {
     .ant-menu-submenu-title {
